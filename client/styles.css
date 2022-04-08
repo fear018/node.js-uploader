@@ -1,0 +1,45 @@
+* {
+  box-sizing: border-box;
+}
+
+h1 {
+  text-align: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  margin: 0 auto 16px;
+}
+
+input {
+  margin-bottom: 8px;
+}
+
+#presentationPicture {
+  width: 300px;
+}
+
+#uploadButton {
+  margin-top: 10px;
+}
+
+table {
+  width: 50%;
+  margin: 0 auto;
+  border: 1px solid;
+}
+
+td {
+  text-align: center;
+}
+
+.picture {
+  width: 50px;
+  height: 50px;
+}
+
+.editInput {
+  width: 100%;
+}
