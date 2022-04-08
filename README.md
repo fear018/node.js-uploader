@@ -1,6 +1,6 @@
 #### Client
 
-The client folder you can open in default browser (for example).
+The client folder you can open via default browser (for example).
 
 #### Server
 
