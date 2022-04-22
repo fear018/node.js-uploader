@@ -1,4 +1,5 @@
 const fs = require("fs");
+const path = require("path");
 
 module.exports = class RouterService {
   constructor(response, result, queryParams) {
@@ -13,8 +14,19 @@ module.exports = class RouterService {
     this.response.end(dbBuffer);
   }
 
-  uploadItem() {
-    this.response.end(JSON.stringify({ name: this.result.name }));
+  async uploadItem() {
+    const { picture: rawBase64Pic, name } = this.result
+    const clearBase64 = rawBase64Pic.replace(/^data:image\/png;base64,/, "")
+    const base64Buff = Buffer.from(clearBase64, 'base64')
+    const imagePath = path.resolve(__dirname, '../uploads', name)
+    fs.writeFile(imagePath, base64Buff, 'base64', (err) => {
+      if (err) {
+        console.error(err);
+        this.response.end(JSON.stringify({ err }));
+      } else {
+        this.response.end(JSON.stringify({ name }));
+      }
+    })
   }
 
   deleteItem() {
