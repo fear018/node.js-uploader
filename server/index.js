@@ -27,7 +27,7 @@ const server = http.createServer(async (request, response) => {
 
     switch (pathname) {
       case "/upload":
-        routerService.uploadItem();
+        await routerService.uploadItem(request);
         break;
       case "/items":
         routerService.getItems();
